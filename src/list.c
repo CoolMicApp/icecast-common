@@ -86,7 +86,7 @@ void                    igloo_list_preallocate(igloo_list_t *list, size_t reques
 
     new_len = (list->fill - list->offset) + request;
 
-    if (new_len > list->length || (new_len + 32) > list->length) {
+    if (new_len > list->length || (new_len + 32) < list->length) {
         igloo_ro_t *n;
 
         igloo_list_preallocate__realign(list);
